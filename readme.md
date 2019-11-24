@@ -14,6 +14,15 @@ Follow the example of the config.sample.ini in creating it.
 You will need to update the code to have your table name and fields.
 Copy from https://www.airtable.com/api.
 
+If you want to use the test code to create base records, you will need to 
+copy it to a publicly-accessible location on your web server. (The node.js script
+should *not* be publicly accessible.) You will then need to update the
+submit.sample.php to be submit.php with the proper fully-qualified path
+to the create.js script. You will also need to make sure that shell_exec() is 
+allowed for that script. Bear in mind that this is merely a sample for testing
+the integration, and does not have the security features (such as input
+sanitization) to be used in production.
+
 Make sure that all the .js files are executable by the running user.
 
 Make sure that /usr/bin/env node can locate node.js, and have the latest version of node.js available.
@@ -59,7 +68,8 @@ ISC License (https://opensource.org/licenses/ISC)
 TODOs
 =====
 
-* Add logging
+* Write a webhook into Elementor for WordPress (CVU use case).
+* Implement input sanitization on $_POST (see if a library could be included).
 * Turn some of the functions that currently take parameters from the command line into functions that could be exported which take parameters.
   This way, things like the select functionality could be imported in a bulk update script, to find existing records and either not insert new ones
   or else to simply control what Stage is set for newly inserted records.
