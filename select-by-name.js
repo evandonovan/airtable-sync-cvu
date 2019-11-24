@@ -9,7 +9,7 @@ var args = require('minimist')(process.argv.slice(2)); // process command line a
 var Airtable = require('airtable'); // airtable connection
 
 /* load config settings */
-var config = ini.parse(fs.readFileSync('./.config.ini', 'utf-8'));
+var config = ini.parse(fs.readFileSync(__dirname + '/.config.ini', 'utf-8'));
 
 /* initialize base */
 var base = new Airtable({apiKey: config.api.apiKey}).base(config.api.base);
