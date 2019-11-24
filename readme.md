@@ -10,7 +10,10 @@ Follow the example of the config.sample.ini in creating it.
 
 Author
 ======
-Evan Donovan for City Vision University (www.cityvision.edu)
+*Evan Donovan for City Vision University (www.cityvision.edu)
+
+License
+========
 ISD License
 
 TODOs
