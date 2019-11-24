@@ -14,7 +14,7 @@ Evan Donovan for City Vision University (www.cityvision.edu)
 
 License
 ========
-ISD License
+ISC License (https://opensource.org/licenses/ISC)
 
 TODOs
 =====
