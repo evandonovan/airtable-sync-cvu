@@ -7,14 +7,15 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
-      "type": "git",
-      "url": "https://github.com/evandonovan/airtable-sync-cvu.git"
+    "type": "git",
+    "url": "https://github.com/evandonovan/airtable-sync-cvu.git"
   },
   "dependencies": {
-    "express": "4.x",
-    "nconf": "0.x",
     "airtable": "0.x",
-    "body-parser": "1.x"
+    "body-parser": "1.x",
+    "express": "4.x",
+    "minimist": "^1.2.0",
+    "nconf": "0.x"
   },
   "author": "Evan Donovan",
   "license": "ISC"

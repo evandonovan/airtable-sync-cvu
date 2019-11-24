@@ -12,8 +12,7 @@ var nconf = require('nconf'); // configuration
 var Airtable = require('airtable');
 
 /* load config settings */
-nconf.use('file', { file: './config.json' });
-nconf.load();
+nconf.file('file', { file: './.config.json' });
 
 var endpointUrl = nconf.get('endpointUrl');
 var ConfApiKey = nconf.get('apiKey');
@@ -28,23 +27,23 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: true })); 
 
 // tests that it works with get
-app.get('/example', function (req, res) {
+app.get('/hello', function (req, res) {
   res.send('hello world');
 })
 
 /* Shows how to respond to a route with express -
    https://stackoverflow.com/a/52675577/263877 */
 /* After done testing proof of concept, switch */
-app.post('/example', (req, res) => {
+app.post('/example-post', (req, res) => {
   res.send(`Full name is:${req.body.fname} ${req.body.lname}.`);
 });
 
 /* todo: create the POST version that actually processes a form post */
 app.get('/sync', (req, res) => {
   base('Potential Students').create({
-    "Name": "Evan Donovan",
+    "Name": "Test Person",
     "Phone": "1234567",
-    "Email": "evan@example.com",
+    "Email": "test@example.com",
     "Stage": "Enrolled Not Started (past day 5)"
   }, function(err, record) {
     if (err) {
@@ -55,8 +54,10 @@ app.get('/sync', (req, res) => {
   });
 });
 
-const port = 8080;
+// port 3000 seems to be a standard for something behind a proxy
+const port = 3000;
 
 app.listen(port, () => {
-  console.log(`Server running on port${port}`);
+  // Todo: Instrument with some logging.
+  console.log(`AirTable Sync server running on port ${port}`);
 });
