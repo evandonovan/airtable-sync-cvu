@@ -26,11 +26,18 @@ Usage
 
 `./create.js --name="Test" --phone="555-5555" --email="test@example.com"`
 
-*Retrieve a Record*:
+*Retrieve a Record by ID*:
 
 `./retrieve.js --recordid="RECORD_ID_HERE"`
 
 Currently this code just prints all the details of this record.
+
+*Select Records by Name*:
+
+`./select-by-name.js --name="Test"`
+
+This code will print all the details of these records, including those that are filtered out of the active grid view.
+Code can be modified to use grid view settings, or to be limited to a max number of records.
 
 *Update a Record*:
 
@@ -43,7 +50,7 @@ Currently this code just prints all the details of this record.
 
 Author
 ======
-Evan Donovan for City Vision University (www.cityvision.edu)
+Evan Donovan for City Vision University (https://www.cityvision.edu)
 
 License
 ========
@@ -53,6 +60,9 @@ TODOs
 =====
 
 * Add logging
+* Turn some of the functions that currently take parameters from the command line into functions that could be exported which take parameters.
+  This way, things like the select functionality could be imported in a bulk update script, to find existing records and either not insert new ones
+  or else to simply control what Stage is set for newly inserted records.
 
 Probably Out of Scope
 =====================
