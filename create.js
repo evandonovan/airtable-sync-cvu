@@ -1,24 +1,18 @@
 #!/usr/bin/env node
 
 /* Required packages */
-var nconf = require('nconf'); // configuration
+var fs = require('fs')
+  , ini = require('ini') // configuration
 
-var args = require('minimist')(process.argv.slice(2)); // process command-line arguments
+var args = require('minimist')(process.argv.slice(2)); // process command line arguments
 
 var Airtable = require('airtable'); // push airtable records
 
 /* load config settings */
-nconf.file('file', { file: './.config.json' });
-
-var endpointUrl = nconf.get('endpointUrl');
-var ConfApiKey = nconf.get('apiKey');
-var ConfBase = nconf.get('base');
+var config = ini.parse(fs.readFileSync('./.config.ini', 'utf-8'));
 
 /* initialize base */
-var base = new Airtable({apiKey: ConfApiKey}).base(ConfBase);
-
-/* echo args to console (for debugging) */
-console.dir(args);
+var base = new Airtable({apiKey: config.api.apiKey}).base(config.api.base);
 
 /* create a record in the base - casting all to string */
 // TODO: see if typecast option in AirTable API could work

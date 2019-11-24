@@ -1,5 +1,0 @@
-{
-  "endpointUrl": "https://api.airtable.com",
-  "apiKey": "YOUR_API_KEY", 
-  "base": "YOUR_BASE_ID"
-}
