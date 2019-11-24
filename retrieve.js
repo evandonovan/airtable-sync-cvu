@@ -15,16 +15,9 @@ var ConfBase = nconf.get('base');
 /* initialize base */
 var base = new Airtable({apiKey: ConfApiKey}).base(ConfBase);
 
-/* create a test record */
-  base('Potential Students').create({
-    "Name": "Test Person 2",
-    "Phone": "1234567",
-    "Email": "test@example.com",
-    "Stage": "Enrolled Not Started (past day 5)"
-  }, function(err, record) {
-    if (err) {
-      console.error(err);
-      return;
-    }
-    console.log(record.getId());
-  });
+/* retrieve a record from the base */
+base('Potential Students').find('recuJLZukvombFqZH', function(err, record) {
+    if (err) { console.log('Error: ', err); return; }
+    console.log('Retrieved', record.id);
+	console.dir(record);
+});
