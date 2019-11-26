@@ -2,8 +2,6 @@
 
 // Use of ternary operator to set defaults for required parameters
 // isset use: https://phppot.com/php/isset-vs-empty-vs-is_null
-// Use of ternary operator to set defaults for required parameters
-// isset use: https://phppot.com/php/isset-vs-empty-vs-is_null
 if(isset($_POST['First_Name']) && isset($_POST['Last_Name'])) {
 	$name = $_POST['First_Name'] . ' ' . $_POST['Last_Name'];
 }
